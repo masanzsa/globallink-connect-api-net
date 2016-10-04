@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax233="http://dto.model.projectdirector.gs4tr.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://impl.services.service.ws.projectdirector.gs4tr.org" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>SubmissionService</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax234="http://dto.model.projectdirector.gs4tr.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org">
+      <xs:import schemaLocation="types.xsd" namespace="http://dto.model.projectdirector.gs4tr.org/xsd" />
+      <xs:import schemaLocation="xmime.xsd" namespace="http://www.w3.org/2005/05/xmlmime" />
+      <xs:element name="addSubmitter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionTicket" type="xs:string" />
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addSubmitterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelSubmission">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelSubmissionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelSubmissionWithComment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionId" type="xs:string" />
+            <xs:element name="comment" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelSubmissionWithCommentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ticket" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax234:Submission" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findCreatingSubmissionsByProjectShortCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="projectShortCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findCreatingSubmissionsByProjectShortCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax234:Submission" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="search">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="command" type="ax234:SubmissionSearchRequest" />
+            <xs:element name="info" type="ax234:PagedListInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax234:SubmissionPagedList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchSubmissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionSearchRequest" type="ax234:SubmissionSearchRequest" />
+            <xs:element name="info" type="ax234:PagedListInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchSubmissionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax234:SubmissionSearchModelPagedList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="startSingleBatchSubmission">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionId" type="xs:string" />
+            <xs:element name="submissionInfo" nillable="true" type="ax234:SubmissionInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="startSingleBatchSubmissionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="startSubmission">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionId" type="xs:string" />
+            <xs:element name="submissionInfo" nillable="true" type="ax234:SubmissionInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="startSubmissionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="uploadReference">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="submissionId" type="xs:string" />
+            <xs:element name="resourceInfo" type="ax234:ResourceInfo" />
+            <xs:element name="data" type="xmime:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="uploadReferenceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addSubmitterRequest">
+    <wsdl:part name="parameters" element="ns:addSubmitter" />
+  </wsdl:message>
+  <wsdl:message name="addSubmitterResponse">
+    <wsdl:part name="parameters" element="ns:addSubmitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubmissionRequest">
+    <wsdl:part name="parameters" element="ns:cancelSubmission" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubmissionResponse">
+    <wsdl:part name="parameters" element="ns:cancelSubmissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubmissionWithCommentRequest">
+    <wsdl:part name="parameters" element="ns:cancelSubmissionWithComment" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubmissionWithCommentResponse">
+    <wsdl:part name="parameters" element="ns:cancelSubmissionWithCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="findByTicketRequest">
+    <wsdl:part name="parameters" element="ns:findByTicket" />
+  </wsdl:message>
+  <wsdl:message name="findByTicketResponse">
+    <wsdl:part name="parameters" element="ns:findByTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="findCreatingSubmissionsByProjectShortCodeRequest">
+    <wsdl:part name="parameters" element="ns:findCreatingSubmissionsByProjectShortCode" />
+  </wsdl:message>
+  <wsdl:message name="findCreatingSubmissionsByProjectShortCodeResponse">
+    <wsdl:part name="parameters" element="ns:findCreatingSubmissionsByProjectShortCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchRequest">
+    <wsdl:part name="parameters" element="ns:search" />
+  </wsdl:message>
+  <wsdl:message name="searchResponse">
+    <wsdl:part name="parameters" element="ns:searchResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchSubmissionsRequest">
+    <wsdl:part name="parameters" element="ns:searchSubmissions" />
+  </wsdl:message>
+  <wsdl:message name="searchSubmissionsResponse">
+    <wsdl:part name="parameters" element="ns:searchSubmissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="startSingleBatchSubmissionRequest">
+    <wsdl:part name="parameters" element="ns:startSingleBatchSubmission" />
+  </wsdl:message>
+  <wsdl:message name="startSingleBatchSubmissionResponse">
+    <wsdl:part name="parameters" element="ns:startSingleBatchSubmissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="startSubmissionRequest">
+    <wsdl:part name="parameters" element="ns:startSubmission" />
+  </wsdl:message>
+  <wsdl:message name="startSubmissionResponse">
+    <wsdl:part name="parameters" element="ns:startSubmissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadReferenceRequest">
+    <wsdl:part name="parameters" element="ns:uploadReference" />
+  </wsdl:message>
+  <wsdl:message name="uploadReferenceResponse">
+    <wsdl:part name="parameters" element="ns:uploadReferenceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SubmissionServicePortType">
+    <wsdl:operation name="addSubmitter">
+      <wsdl:input wsaw:Action="urn:addSubmitter" message="ns:addSubmitterRequest" />
+      <wsdl:output wsaw:Action="urn:addSubmitterResponse" message="ns:addSubmitterResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmission">
+      <wsdl:input wsaw:Action="urn:cancelSubmission" message="ns:cancelSubmissionRequest" />
+      <wsdl:output wsaw:Action="urn:cancelSubmissionResponse" message="ns:cancelSubmissionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmissionWithComment">
+      <wsdl:input wsaw:Action="urn:cancelSubmissionWithComment" message="ns:cancelSubmissionWithCommentRequest" />
+      <wsdl:output wsaw:Action="urn:cancelSubmissionWithCommentResponse" message="ns:cancelSubmissionWithCommentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <wsdl:input wsaw:Action="urn:findByTicket" message="ns:findByTicketRequest" />
+      <wsdl:output wsaw:Action="urn:findByTicketResponse" message="ns:findByTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findCreatingSubmissionsByProjectShortCode">
+      <wsdl:input wsaw:Action="urn:findCreatingSubmissionsByProjectShortCode" message="ns:findCreatingSubmissionsByProjectShortCodeRequest" />
+      <wsdl:output wsaw:Action="urn:findCreatingSubmissionsByProjectShortCodeResponse" message="ns:findCreatingSubmissionsByProjectShortCodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <wsdl:input wsaw:Action="urn:search" message="ns:searchRequest" />
+      <wsdl:output wsaw:Action="urn:searchResponse" message="ns:searchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="searchSubmissions">
+      <wsdl:input wsaw:Action="urn:searchSubmissions" message="ns:searchSubmissionsRequest" />
+      <wsdl:output wsaw:Action="urn:searchSubmissionsResponse" message="ns:searchSubmissionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="startSingleBatchSubmission">
+      <wsdl:input wsaw:Action="urn:startSingleBatchSubmission" message="ns:startSingleBatchSubmissionRequest" />
+      <wsdl:output wsaw:Action="urn:startSingleBatchSubmissionResponse" message="ns:startSingleBatchSubmissionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="startSubmission">
+      <wsdl:input wsaw:Action="urn:startSubmission" message="ns:startSubmissionRequest" />
+      <wsdl:output wsaw:Action="urn:startSubmissionResponse" message="ns:startSubmissionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadReference">
+      <wsdl:input wsaw:Action="urn:uploadReferenceRequest" message="ns:uploadReferenceRequest" />
+      <wsdl:output wsaw:Action="urn:uploadReferenceResponse" message="ns:uploadReferenceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubmissionServiceSoap11Binding" type="ns:SubmissionServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addSubmitter">
+      <soap:operation soapAction="urn:addSubmitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmission">
+      <soap:operation soapAction="urn:cancelSubmission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmissionWithComment">
+      <soap:operation soapAction="urn:cancelSubmissionWithComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <soap:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCreatingSubmissionsByProjectShortCode">
+      <soap:operation soapAction="urn:findCreatingSubmissionsByProjectShortCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchSubmissions">
+      <soap:operation soapAction="urn:searchSubmissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSingleBatchSubmission">
+      <soap:operation soapAction="urn:startSingleBatchSubmission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSubmission">
+      <soap:operation soapAction="urn:startSubmission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadReference">
+      <soap:operation soapAction="urn:uploadReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubmissionServiceSoap12Binding" type="ns:SubmissionServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addSubmitter">
+      <soap12:operation soapAction="urn:addSubmitter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmission">
+      <soap12:operation soapAction="urn:cancelSubmission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmissionWithComment">
+      <soap12:operation soapAction="urn:cancelSubmissionWithComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <soap12:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCreatingSubmissionsByProjectShortCode">
+      <soap12:operation soapAction="urn:findCreatingSubmissionsByProjectShortCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap12:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchSubmissions">
+      <soap12:operation soapAction="urn:searchSubmissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSingleBatchSubmission">
+      <soap12:operation soapAction="urn:startSingleBatchSubmission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSubmission">
+      <soap12:operation soapAction="urn:startSubmission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadReference">
+      <soap12:operation soapAction="urn:uploadReference" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubmissionServiceHttpBinding" type="ns:SubmissionServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="addSubmitter">
+      <http:operation location="SubmissionService/addSubmitter" />
+      <wsdl:input>
+        <mime:content part="addSubmitter" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="addSubmitter" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmission">
+      <http:operation location="SubmissionService/cancelSubmission" />
+      <wsdl:input>
+        <mime:content part="cancelSubmission" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="cancelSubmission" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubmissionWithComment">
+      <http:operation location="SubmissionService/cancelSubmissionWithComment" />
+      <wsdl:input>
+        <mime:content part="cancelSubmissionWithComment" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="cancelSubmissionWithComment" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <http:operation location="SubmissionService/findByTicket" />
+      <wsdl:input>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findCreatingSubmissionsByProjectShortCode">
+      <http:operation location="SubmissionService/findCreatingSubmissionsByProjectShortCode" />
+      <wsdl:input>
+        <mime:content part="findCreatingSubmissionsByProjectShortCode" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="findCreatingSubmissionsByProjectShortCode" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <http:operation location="SubmissionService/search" />
+      <wsdl:input>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchSubmissions">
+      <http:operation location="SubmissionService/searchSubmissions" />
+      <wsdl:input>
+        <mime:content part="searchSubmissions" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="searchSubmissions" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSingleBatchSubmission">
+      <http:operation location="SubmissionService/startSingleBatchSubmission" />
+      <wsdl:input>
+        <mime:content part="startSingleBatchSubmission" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="startSingleBatchSubmission" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startSubmission">
+      <http:operation location="SubmissionService/startSubmission" />
+      <wsdl:input>
+        <mime:content part="startSubmission" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="startSubmission" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadReference">
+      <http:operation location="SubmissionService/uploadReference" />
+      <wsdl:input>
+        <mime:content part="startSubmission" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="startSubmission" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubmissionService">
+    <wsdl:port name="SubmissionServiceHttpSoap11Endpoint" binding="ns:SubmissionServiceSoap11Binding">
+      <soap:address location="http://localhost/services/SubmissionService.SubmissionServiceHttpSoap11Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="SubmissionServiceHttpSoap12Endpoint" binding="ns:SubmissionServiceSoap12Binding">
+      <soap12:address location="http://localhost/services/SubmissionService.SubmissionServiceHttpSoap12Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="SubmissionServiceHttpEndpoint" binding="ns:SubmissionServiceHttpBinding">
+      <http:address location="http://localhost/services/SubmissionService.SubmissionServiceHttpEndpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

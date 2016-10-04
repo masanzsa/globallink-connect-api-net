@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DF0784C5-A11B-4E01-9289-9AC4A2C44067}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlobalLink.Connect</RootNamespace>
+    <AssemblyName>GlobalLink.Connect</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\GlobalLink.Connect.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>PDWebService.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\ProjectDirectorConfig.cs" />
+    <Compile Include="Config\ProxyConfig.cs" />
+    <Compile Include="GLExchange.cs" />
+    <Compile Include="Header\SoapHeaderBuilder.cs" />
+    <Compile Include="Header\UsernameToken.cs" />
+    <Compile Include="Header\MessageViewerInspector.cs" />
+    <Compile Include="Model\CustomAttribute.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Model\LanguageDirection.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ReferenceDocument.cs" />
+    <Compile Include="Model\Submission.cs" />
+    <Compile Include="Model\Target.cs" />
+    <Compile Include="Model\WordCount.cs" />
+    <Compile Include="Model\Workflow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy\Constants.cs" />
+    <Compile Include="Service References\DocumentServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProjectServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SubmissionServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TargetServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy\WcfServiceClient.cs" />
+    <Compile Include="Service References\UserProfileServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DocumentServiceRef\" />
+    <WCFMetadataStorage Include="Service References\ProjectServiceRef\" />
+    <WCFMetadataStorage Include="Service References\SubmissionServiceRef\" />
+    <WCFMetadataStorage Include="Service References\TargetServiceRef\" />
+    <WCFMetadataStorage Include="Service References\UserProfileServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PDWebService.snk" />
+    <None Include="Service References\DocumentServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\DocumentServiceRef\DocumentService11.wsdl" />
+    <None Include="Service References\DocumentServiceRef\DocumentService_4130.wsdl" />
+    <None Include="Service References\DocumentServiceRef\GlobalLink.Connect.DocumentServiceRef.Document.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentServiceRef\GlobalLink.Connect.DocumentServiceRef.DocumentPagedList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentServiceRef\GlobalLink.Connect.DocumentServiceRef.DocumentTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentServiceRef\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServiceRef\types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServiceRef\xmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentServiceRef\xmime1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectServiceRef\GlobalLink.Connect.ProjectServiceRef.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProjectServiceRef\ProjectService1.wsdl" />
+    <None Include="Service References\ProjectServiceRef\ProjectService_4130.wsdl" />
+    <None Include="Service References\ProjectServiceRef\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectServiceRef\types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectServiceRef\xmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectServiceRef\xmime1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubmissionServiceRef\SubmissionService_4130.wsdl" />
+    <None Include="Service References\SubmissionServiceRef\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SubmissionServiceRef\xmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TargetServiceRef\GlobalLink.Connect.TargetServiceRef.PreviewResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TargetServiceRef\GlobalLink.Connect.TargetServiceRef.RepositoryItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TargetServiceRef\GlobalLink.Connect.TargetServiceRef.Target.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TargetServiceRef\GlobalLink.Connect.TargetServiceRef.TargetPagedList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TargetServiceRef\TargetService1.wsdl" />
+    <None Include="Service References\TargetServiceRef\TargetService_4130.wsdl" />
+    <None Include="Service References\TargetServiceRef\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TargetServiceRef\types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TargetServiceRef\xmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TargetServiceRef\xmime1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProfileServiceRef\types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProfileServiceRef\UserProfileService_4130.wsdl" />
+    <None Include="Service References\UserProfileServiceRef\xmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TargetServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TargetServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TargetServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProfileServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProfileServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProfileServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubmissionServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubmissionServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SubmissionServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax241="http://dto.model.projectdirector.gs4tr.org/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://impl.services.service.ws.projectdirector.gs4tr.org" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>TargetService</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax242="http://dto.model.projectdirector.gs4tr.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org">
+      <xs:import schemaLocation="types.xsd" namespace="http://dto.model.projectdirector.gs4tr.org/xsd" />
+      <xs:element name="cancelTargetByDocumentId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="documentId" type="ax242:DocumentTicket" />
+            <xs:element name="targetLocale" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelTargetByDocumentIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelTarget">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="targetId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelTargetResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="downloadTargetResource">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="targetId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="downloadTargetResourceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax242:RepositoryItem" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="downloadTranslationPreview">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="uuid" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="downloadTranslationPreviewResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax242:PreviewResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ticket" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsByDocuments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="documentTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsByDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsByProjects">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="projectTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsByProjectsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsBySubmissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="submissionTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompletedTargetsBySubmissionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestTranslationPreview">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="targetId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestTranslationPreviewResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="uuid" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="search">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="command" type="ax242:TargetSearchRequest" />
+            <xs:element name="info" type="ax242:PagedListInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax242:TargetPagedList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="browseTargetsByDocuments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="documentTickets" type="xs:string" />
+            <xs:element name="info" type="ax242:PagedListInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="browseTargetsByDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendDownloadConfirmation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="targetId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendDownloadConfirmationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsByDocuments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="documentTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsByDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsByProjects">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="projectTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsByProjectsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsBySubmissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="submissionTickets" type="xs:string" />
+            <xs:element name="maxResults" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCanceledTargetsBySubmissionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="return" nillable="true" type="ax242:Target" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findByTicketRequest">
+    <wsdl:part name="parameters" element="ns:findByTicket" />
+  </wsdl:message>
+  <wsdl:message name="findByTicketResponse">
+    <wsdl:part name="parameters" element="ns:findByTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelTargetRequest">
+    <wsdl:part name="parameters" element="ns:cancelTarget" />
+  </wsdl:message>
+  <wsdl:message name="cancelTargetResponse">
+    <wsdl:part name="parameters" element="ns:cancelTargetResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelTargetByDocumentIdRequest">
+    <wsdl:part name="parameters" element="ns:cancelTargetByDocumentId" />
+  </wsdl:message>
+  <wsdl:message name="cancelTargetByDocumentIdResponse">
+    <wsdl:part name="parameters" element="ns:cancelTargetByDocumentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsBySubmissionsRequest">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsBySubmissions" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsBySubmissionsResponse">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsBySubmissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsByProjectsRequest">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsByProjects" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsByProjectsResponse">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsByProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadTargetResourceRequest">
+    <wsdl:part name="parameters" element="ns:downloadTargetResource" />
+  </wsdl:message>
+  <wsdl:message name="downloadTargetResourceResponse">
+    <wsdl:part name="parameters" element="ns:downloadTargetResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadTranslationPreviewRequest">
+    <wsdl:part name="parameters" element="ns:downloadTranslationPreview" />
+  </wsdl:message>
+  <wsdl:message name="downloadTranslationPreviewResponse">
+    <wsdl:part name="parameters" element="ns:downloadTranslationPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendDownloadConfirmationRequest">
+    <wsdl:part name="parameters" element="ns:sendDownloadConfirmation" />
+  </wsdl:message>
+  <wsdl:message name="sendDownloadConfirmationResponse">
+    <wsdl:part name="parameters" element="ns:sendDownloadConfirmationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsByDocumentsRequest">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsByDocuments" />
+  </wsdl:message>
+  <wsdl:message name="getCompletedTargetsByDocumentsResponse">
+    <wsdl:part name="parameters" element="ns:getCompletedTargetsByDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="requestTranslationPreviewRequest">
+    <wsdl:part name="parameters" element="ns:requestTranslationPreview" />
+  </wsdl:message>
+  <wsdl:message name="requestTranslationPreviewResponse">
+    <wsdl:part name="parameters" element="ns:requestTranslationPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchRequest">
+    <wsdl:part name="parameters" element="ns:search" />
+  </wsdl:message>
+  <wsdl:message name="searchResponse">
+    <wsdl:part name="parameters" element="ns:searchResponse" />
+  </wsdl:message>
+  <wsdl:message name="browseTargetsByDocumentsRequest">
+    <wsdl:part name="parameters" element="ns:browseTargetsByDocuments" />
+  </wsdl:message>
+  <wsdl:message name="browseTargetsByDocumentsResponse">
+    <wsdl:part name="parameters" element="ns:browseTargetsByDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsByDocumentsRequest">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsByDocuments" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsByDocumentsResponse">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsByDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsByProjectsRequest">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsByProjects" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsByProjectsResponse">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsByProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsBySubmissionsRequest">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsBySubmissions" />
+  </wsdl:message>
+  <wsdl:message name="getCanceledTargetsBySubmissionsResponse">
+    <wsdl:part name="parameters" element="ns:getCanceledTargetsBySubmissionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TargetServicePortType">
+    <wsdl:operation name="findByTicket">
+      <wsdl:input wsaw:Action="urn:findByTicket" message="ns:findByTicketRequest" />
+      <wsdl:output wsaw:Action="urn:findByTicketResponse" message="ns:findByTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelTarget">
+      <wsdl:input wsaw:Action="urn:cancelTarget" message="ns:cancelTargetRequest" />
+      <wsdl:output wsaw:Action="urn:cancelTargetResponse" message="ns:cancelTargetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelTargetByDocumentId">
+      <wsdl:input wsaw:Action="urn:cancelTargetByDocumentId" message="ns:cancelTargetByDocumentIdRequest" />
+      <wsdl:output wsaw:Action="urn:cancelTargetByDocumentIdResponse" message="ns:cancelTargetByDocumentIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsBySubmissions">
+      <wsdl:input wsaw:Action="urn:getCompletedTargetsBySubmissions" message="ns:getCompletedTargetsBySubmissionsRequest" />
+      <wsdl:output wsaw:Action="urn:getCompletedTargetsBySubmissionsResponse" message="ns:getCompletedTargetsBySubmissionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByProjects">
+      <wsdl:input wsaw:Action="urn:getCompletedTargetsByProjects" message="ns:getCompletedTargetsByProjectsRequest" />
+      <wsdl:output wsaw:Action="urn:getCompletedTargetsByProjectsResponse" message="ns:getCompletedTargetsByProjectsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadTargetResource">
+      <wsdl:input wsaw:Action="urn:downloadTargetResource" message="ns:downloadTargetResourceRequest" />
+      <wsdl:output wsaw:Action="urn:downloadTargetResourceResponse" message="ns:downloadTargetResourceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadTranslationPreview">
+      <wsdl:input wsaw:Action="urn:downloadTranslationPreview" message="ns:downloadTranslationPreviewRequest" />
+      <wsdl:output wsaw:Action="urn:downloadTranslationPreviewResponse" message="ns:downloadTranslationPreviewResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendDownloadConfirmation">
+      <wsdl:input wsaw:Action="urn:sendDownloadConfirmation" message="ns:sendDownloadConfirmationRequest" />
+      <wsdl:output wsaw:Action="urn:sendDownloadConfirmationResponse" message="ns:sendDownloadConfirmationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByDocuments">
+      <wsdl:input wsaw:Action="urn:getCompletedTargetsByDocuments" message="ns:getCompletedTargetsByDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:getCompletedTargetsByDocumentsResponse" message="ns:getCompletedTargetsByDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="requestTranslationPreview">
+      <wsdl:input wsaw:Action="urn:requestTranslationPreview" message="ns:requestTranslationPreviewRequest" />
+      <wsdl:output wsaw:Action="urn:requestTranslationPreviewResponse" message="ns:requestTranslationPreviewResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <wsdl:input wsaw:Action="urn:search" message="ns:searchRequest" />
+      <wsdl:output wsaw:Action="urn:searchResponse" message="ns:searchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="browseTargetsByDocuments">
+      <wsdl:input wsaw:Action="urn:browseTargetsByDocuments" message="ns:browseTargetsByDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:browseTargetsByDocumentsResponse" message="ns:browseTargetsByDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByDocuments">
+      <wsdl:input wsaw:Action="urn:getCanceledTargetsByDocuments" message="ns:getCanceledTargetsByDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:getCanceledTargetsByDocumentsResponse" message="ns:getCanceledTargetsByDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByProjects">
+      <wsdl:input wsaw:Action="urn:getCanceledTargetsByProjects" message="ns:getCanceledTargetsByProjectsRequest" />
+      <wsdl:output wsaw:Action="urn:getCanceledTargetsByProjectsResponse" message="ns:getCanceledTargetsByProjectsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsBySubmissions">
+      <wsdl:input wsaw:Action="urn:getCanceledTargetsBySubmissions" message="ns:getCanceledTargetsBySubmissionsRequest" />
+      <wsdl:output wsaw:Action="urn:getCanceledTargetsBySubmissionsResponse" message="ns:getCanceledTargetsBySubmissionsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TargetServiceSoap11Binding" type="ns:TargetServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findByTicket">
+      <soap:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTarget">
+      <soap:operation soapAction="urn:cancelTarget" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTargetByDocumentId">
+      <soap:operation soapAction="urn:cancelTargetByDocumentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsBySubmissions">
+      <soap:operation soapAction="urn:getCompletedTargetsBySubmissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByProjects">
+      <soap:operation soapAction="urn:getCompletedTargetsByProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTargetResource">
+      <soap:operation soapAction="urn:downloadTargetResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTranslationPreview">
+      <soap:operation soapAction="urn:downloadTranslationPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDownloadConfirmation">
+      <soap:operation soapAction="urn:sendDownloadConfirmation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByDocuments">
+      <soap:operation soapAction="urn:getCompletedTargetsByDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestTranslationPreview">
+      <soap:operation soapAction="urn:requestTranslationPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="browseTargetsByDocuments">
+      <soap:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByDocuments">
+      <soap:operation soapAction="urn:getCanceledTargetsByDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByProjects">
+      <soap:operation soapAction="urn:getCanceledTargetsByProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsBySubmissions">
+      <soap:operation soapAction="urn:getCanceledTargetsBySubmissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TargetServiceSoap12Binding" type="ns:TargetServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findByTicket">
+      <soap12:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTarget">
+      <soap12:operation soapAction="urn:cancelTarget" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTargetByDocumentId">
+      <soap12:operation soapAction="urn:cancelTargetByDocumentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsBySubmissions">
+      <soap12:operation soapAction="urn:getCompletedTargetsBySubmissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByProjects">
+      <soap12:operation soapAction="urn:getCompletedTargetsByProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTargetResource">
+      <soap12:operation soapAction="urn:downloadTargetResource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTranslationPreview">
+      <soap12:operation soapAction="urn:downloadTranslationPreview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDownloadConfirmation">
+      <soap12:operation soapAction="urn:sendDownloadConfirmation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByDocuments">
+      <soap12:operation soapAction="urn:getCompletedTargetsByDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestTranslationPreview">
+      <soap12:operation soapAction="urn:requestTranslationPreview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap12:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="browseTargetsByDocuments">
+      <soap12:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByDocuments">
+      <soap12:operation soapAction="urn:getCanceledTargetsByDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByProjects">
+      <soap12:operation soapAction="urn:getCanceledTargetsByProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsBySubmissions">
+      <soap12:operation soapAction="urn:getCanceledTargetsBySubmissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TargetServiceHttpBinding" type="ns:TargetServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="findByTicket">
+      <http:operation location="TargetService/findByTicket" />
+      <wsdl:input>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTarget">
+      <http:operation location="TargetService/cancelTarget" />
+      <wsdl:input>
+        <mime:content part="cancelTarget" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="cancelTarget" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelTargetByDocumentId">
+      <http:operation location="TargetService/cancelTargetByDocumentId" />
+      <wsdl:input>
+        <mime:content part="cancelTargetByDocumentId" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="cancelTargetByDocumentId" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsBySubmissions">
+      <http:operation location="TargetService/getCompletedTargetsBySubmissions" />
+      <wsdl:input>
+        <mime:content part="getCompletedTargetsBySubmissions" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCompletedTargetsBySubmissions" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByProjects">
+      <http:operation location="TargetService/getCompletedTargetsByProjects" />
+      <wsdl:input>
+        <mime:content part="getCompletedTargetsByProjects" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCompletedTargetsByProjects" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTargetResource">
+      <http:operation location="TargetService/downloadTargetResource" />
+      <wsdl:input>
+        <mime:content part="downloadTargetResource" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="downloadTargetResource" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTranslationPreview">
+      <http:operation location="TargetService/downloadTranslationPreview" />
+      <wsdl:input>
+        <mime:content part="downloadTranslationPreview" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="downloadTranslationPreview" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDownloadConfirmation">
+      <http:operation location="TargetService/sendDownloadConfirmation" />
+      <wsdl:input>
+        <mime:content part="sendDownloadConfirmation" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="sendDownloadConfirmation" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedTargetsByDocuments">
+      <http:operation location="TargetService/getCompletedTargetsByDocuments" />
+      <wsdl:input>
+        <mime:content part="getCompletedTargetsByDocuments" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCompletedTargetsByDocuments" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestTranslationPreview">
+      <http:operation location="TargetService/requestTranslationPreview" />
+      <wsdl:input>
+        <mime:content part="requestTranslationPreview" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="requestTranslationPreview" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <http:operation location="TargetService/search" />
+      <wsdl:input>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="browseTargetsByDocuments">
+      <http:operation location="TargetService/browseTargetsByDocuments" />
+      <wsdl:input>
+        <mime:content part="browseTargetsByDocuments" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="browseTargetsByDocuments" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByDocuments">
+      <http:operation location="TargetService/getCanceledTargetsByDocuments" />
+      <wsdl:input>
+        <mime:content part="getCanceledTargetsByDocuments" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCanceledTargetsByDocuments" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsByProjects">
+      <http:operation location="TargetService/getCanceledTargetsByProjects" />
+      <wsdl:input>
+        <mime:content part="getCanceledTargetsByProjects" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCanceledTargetsByProjects" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanceledTargetsBySubmissions">
+      <http:operation location="TargetService/getCanceledTargetsBySubmissions" />
+      <wsdl:input>
+        <mime:content part="getCanceledTargetsBySubmissions" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getCanceledTargetsBySubmissions" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TargetService">
+    <wsdl:port name="TargetServiceHttpSoap11Endpoint" binding="ns:TargetServiceSoap11Binding">
+      <soap:address location="http://localhost/services/TargetService.TargetServiceHttpSoap11Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="TargetServiceHttpSoap12Endpoint" binding="ns:TargetServiceSoap12Binding">
+      <soap12:address location="http://localhost/services/TargetService.TargetServiceHttpSoap12Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="TargetServiceHttpEndpoint" binding="ns:TargetServiceHttpBinding">
+      <http:address location="http://localhost/services/TargetService.TargetServiceHttpEndpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

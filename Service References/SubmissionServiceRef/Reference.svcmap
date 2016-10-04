@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="15ffddde-90b3-4465-8ad6-3f5df637f5ab" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\projects\glcapi.net\Service References\SubmissionService_4130.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="types.xsd" MetadataType="Schema" ID="946a42bb-9220-4577-8b48-e6928081fcf7" SourceId="1" SourceUrl="file:///c:/projects/glcapi.net/Service References/types.xsd" />
+    <MetadataFile FileName="SubmissionService_4130.wsdl" MetadataType="Wsdl" ID="d07eaa52-2e8d-4ee9-a5b5-e09b0e76db1c" SourceId="1" SourceUrl="file:///c:/projects/glcapi.net/Service References/SubmissionService_4130.wsdl" />
+    <MetadataFile FileName="xmime.xsd" MetadataType="Schema" ID="c3aa27e7-1271-4e25-b211-a944952e0bff" SourceId="1" SourceUrl="file:///c:/projects/glcapi.net/Service References/xmime.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

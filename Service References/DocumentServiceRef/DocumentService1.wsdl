@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax225="http://dto.model.projectdirector.gs4tr.org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://impl.services.service.ws.projectdirector.gs4tr.org" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>DocumentService</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax226="http://dto.model.projectdirector.gs4tr.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.services.service.ws.projectdirector.gs4tr.org">
+      <xs:import schemaLocation="DocumentService?xsd=types.xsd" namespace="http://dto.model.projectdirector.gs4tr.org/xsd" />
+      <xs:import schemaLocation="DocumentService?xsd=xmime.xsd" namespace="http://www.w3.org/2005/05/xmlmime" />
+      <xs:element name="cancelDocument">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="documentTicket" type="ax226:DocumentTicket" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelDocumentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ticket" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findByTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax226:Document" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="search">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="command" type="ax226:DocumentSearchRequest" />
+            <xs:element name="info" type="ax226:PagedListInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax226:DocumentPagedList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="submitDocumentWithBinaryResource">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="documentInfo" type="ax226:DocumentInfo" />
+            <xs:element name="resourceInfo" type="ax226:ResourceInfo" />
+            <xs:element name="data" type="xmime:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="submitDocumentWithBinaryResourceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax226:DocumentTicket" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="submitDocumentWithTextResource">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="documentInfo" type="ax226:DocumentInfo" />
+            <xs:element name="resourceInfo" type="ax226:ResourceInfo" />
+            <xs:element name="data" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="submitDocumentWithTextResourceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="ax226:DocumentTicket" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="cancelDocumentRequest">
+    <wsdl:part name="parameters" element="ns:cancelDocument" />
+  </wsdl:message>
+  <wsdl:message name="cancelDocumentResponse">
+    <wsdl:part name="parameters" element="ns:cancelDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitDocumentWithTextResourceRequest">
+    <wsdl:part name="parameters" element="ns:submitDocumentWithTextResource" />
+  </wsdl:message>
+  <wsdl:message name="submitDocumentWithTextResourceResponse">
+    <wsdl:part name="parameters" element="ns:submitDocumentWithTextResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchRequest">
+    <wsdl:part name="parameters" element="ns:search" />
+  </wsdl:message>
+  <wsdl:message name="searchResponse">
+    <wsdl:part name="parameters" element="ns:searchResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitDocumentWithBinaryResourceRequest">
+    <wsdl:part name="parameters" element="ns:submitDocumentWithBinaryResource" />
+  </wsdl:message>
+  <wsdl:message name="submitDocumentWithBinaryResourceResponse">
+    <wsdl:part name="parameters" element="ns:submitDocumentWithBinaryResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="findByTicketRequest">
+    <wsdl:part name="parameters" element="ns:findByTicket" />
+  </wsdl:message>
+  <wsdl:message name="findByTicketResponse">
+    <wsdl:part name="parameters" element="ns:findByTicketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DocumentServicePortType">
+    <wsdl:operation name="cancelDocument">
+      <wsdl:input wsaw:Action="urn:cancelDocument" message="ns:cancelDocumentRequest" />
+      <wsdl:output wsaw:Action="urn:cancelDocumentResponse" message="ns:cancelDocumentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithTextResource">
+      <wsdl:input wsaw:Action="urn:submitDocumentWithTextResource" message="ns:submitDocumentWithTextResourceRequest" />
+      <wsdl:output wsaw:Action="urn:submitDocumentWithTextResourceResponse" message="ns:submitDocumentWithTextResourceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <wsdl:input wsaw:Action="urn:search" message="ns:searchRequest" />
+      <wsdl:output wsaw:Action="urn:searchResponse" message="ns:searchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithBinaryResource">
+      <wsdl:input wsaw:Action="urn:submitDocumentWithBinaryResource" message="ns:submitDocumentWithBinaryResourceRequest" />
+      <wsdl:output wsaw:Action="urn:submitDocumentWithBinaryResourceResponse" message="ns:submitDocumentWithBinaryResourceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <wsdl:input wsaw:Action="urn:findByTicket" message="ns:findByTicketRequest" />
+      <wsdl:output wsaw:Action="urn:findByTicketResponse" message="ns:findByTicketResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentServiceSoap11Binding" type="ns:DocumentServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cancelDocument">
+      <soap:operation soapAction="urn:cancelDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithTextResource">
+      <soap:operation soapAction="urn:submitDocumentWithTextResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithBinaryResource">
+      <soap:operation soapAction="urn:submitDocumentWithBinaryResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <soap:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentServiceSoap12Binding" type="ns:DocumentServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cancelDocument">
+      <soap12:operation soapAction="urn:cancelDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithTextResource">
+      <soap12:operation soapAction="urn:submitDocumentWithTextResource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap12:operation soapAction="urn:search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithBinaryResource">
+      <soap12:operation soapAction="urn:submitDocumentWithBinaryResource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <soap12:operation soapAction="urn:findByTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentServiceHttpBinding" type="ns:DocumentServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="cancelDocument">
+      <http:operation location="DocumentService/cancelDocument" />
+      <wsdl:input>
+        <mime:content part="cancelDocument" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="cancelDocument" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithTextResource">
+      <http:operation location="DocumentService/submitDocumentWithTextResource" />
+      <wsdl:input>
+        <mime:content part="submitDocumentWithTextResource" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="submitDocumentWithTextResource" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <http:operation location="DocumentService/search" />
+      <wsdl:input>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="search" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitDocumentWithBinaryResource">
+      <http:operation location="DocumentService/submitDocumentWithBinaryResource" />
+      <wsdl:input>
+        <mime:content part="submitDocumentWithBinaryResource" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="submitDocumentWithBinaryResource" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByTicket">
+      <http:operation location="DocumentService/findByTicket" />
+      <wsdl:input>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="findByTicket" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentService">
+    <wsdl:port name="DocumentServiceHttpSoap11Endpoint" binding="ns:DocumentServiceSoap11Binding">
+      <soap:address location="http://localhost/services/DocumentService.DocumentServiceHttpSoap11Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="DocumentServiceHttpSoap12Endpoint" binding="ns:DocumentServiceSoap12Binding">
+      <soap12:address location="http://localhost/services/DocumentService.DocumentServiceHttpSoap12Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="DocumentServiceHttpEndpoint" binding="ns:DocumentServiceHttpBinding">
+      <http:address location="http://localhost/services/DocumentService.DocumentServiceHttpEndpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

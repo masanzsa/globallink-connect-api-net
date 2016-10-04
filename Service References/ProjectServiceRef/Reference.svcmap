@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="87b6a7c3-d250-409f-8537-548a3b030597" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://gl-connect2.translations.com/PD/services/ProjectService_4130.wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="xmime.xsd" MetadataType="Schema" ID="01a5b703-4e67-4d55-a65b-87786d4431cb" SourceId="1" SourceUrl="https://gl-connect2.translations.com/PD/services/xmime.xsd" />
+    <MetadataFile FileName="types.xsd" MetadataType="Schema" ID="db4f6818-05d6-424f-9456-959ca2aa559d" SourceId="1" SourceUrl="https://gl-connect2.translations.com/PD/services/types.xsd" />
+    <MetadataFile FileName="ProjectService_4130.wsdl" MetadataType="Wsdl" ID="fc13cc8d-7c65-4b18-94a1-21f27673ced6" SourceId="1" SourceUrl="https://gl-connect2.translations.com/PD/services/ProjectService_4130.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

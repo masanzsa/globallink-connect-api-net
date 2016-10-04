@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="86b372d3-d3c1-4de2-a492-c0d20cbb8119" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gl-sandbox5.translations.com/PD/services/wsdl/DocumentService.wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="types.xsd" MetadataType="Schema" ID="30c65c14-96df-4168-879c-47ebc8fb195b" SourceId="1" SourceUrl="http://gl-sandbox5.translations.com/PD/services/wsdl/types.xsd" />
+    <MetadataFile FileName="xmime.xsd" MetadataType="Schema" ID="bde2e837-730b-4462-a880-6f29d64bfd9b" SourceId="1" SourceUrl="http://gl-sandbox5.translations.com/PD/services/wsdl/xmime.xsd" />
+    <MetadataFile FileName="DocumentService.wsdl" MetadataType="Wsdl" ID="4fd3731a-ff94-4baa-95d4-7f01fd3e37ed" SourceId="1" SourceUrl="http://gl-sandbox5.translations.com/PD/services/wsdl/DocumentService.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
